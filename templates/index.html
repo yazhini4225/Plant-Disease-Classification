@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Prediction</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            color: #eee4e4;
+            background-image: url('{{ url_for('static', filename='leaf3.jpg') }}');/* Replace with your image file path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            position: relative;
+            font-size: 25px;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+            z-index: -1;
+        }
+
+        .top-center {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 100px); /* Adjust height considering the top title */
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .container p {
+            color: #eee4e4;
+            font-size: large;
+            margin-bottom: 20px;
+        }
+
+        .btn1 {
+            display: inline-block;
+            padding: 15px 30px;
+            color: #4CAF50;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #333;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn1:hover {
+            background-color: #555;
+        }
+
+        .btn1 span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn1:hover::after {
+            transform: translateX(0) rotate(45deg);
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            background: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plant Disease Prediction</h1>
+        <p>"Discover the health of your plants with ease. This platform enables the identification of various diseases affecting plant leaves, providing quick and accurate insights to help you manage crop health effectively. Simply upload an image of the plant leaf, and let the system analyze and classify its condition."</p>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button class="btn1" type="submit"><span>Predict</span></button>
+        </form>
+        <div id="particles-js"></div>
+    </div>
+</body>
+</html>

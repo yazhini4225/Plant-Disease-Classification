@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            color: #eee4e4;
+            background-image: url('{{ url_for('static', filename='leaf2.jpg') }}'); /* Replace with your image file path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            position: relative;
+            font-size: 25px;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+            z-index: -1;
+        }
+
+        .top-center {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 100px); /* Adjust height considering the top title */
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .container p {
+            color: #eee4e4;
+            font-size: large;
+            margin: 20px 0;
+        }
+
+        .uploaded-image {
+            max-width: 300px;
+            height: auto;
+            border: 3px solid #4CAF50;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #4CAF50;
+            background-color: #333;
+            border: 2px solid #4CAF50;
+            border-radius: 50px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Uploaded Image" class="uploaded-image">
+        <p><strong>Prediction: </strong>{{ prediction }}</p>
+        <a href="/">Go Back</a>
+    </div>
+    <div id="particles-js"></div>
+</body>
+</html>

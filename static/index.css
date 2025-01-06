@@ -1,0 +1,98 @@
+/* General Body Styling */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    color: #eee4e4;
+    background-image: url('leaf1.jpg'); /* Replace with your image file path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    font-size: 25px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text visibility */
+    z-index: -1;
+}
+
+/* Top Center Title Styling */
+.top-center {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 100px); /* Adjust height considering the top title */
+    text-align: center;
+}
+.p{
+    font-size: large;
+}
+.container {
+    color: #eee4e4;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn1 {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #4CAF50;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.btn1:hover {
+    background-color: #555;
+}
+
+.btn1 span {
+    position: relative;
+    z-index: 1;
+}
+
+
+.btn1:hover::after {
+    transform: translateX(0) rotate(45deg);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
